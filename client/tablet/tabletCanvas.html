@@ -1,0 +1,33 @@
+<template name="tabletCanvas">
+    <p>Tablet Canvas</p>
+
+    <svg width="500" height="500">
+
+        {{#each weaveRows}}
+
+        <svg class="weaveRow" id="weaveRow{{ rowIndex }}">
+            {{#each stitches}}
+
+                {{#if flip}}
+                    <path stroke="{{stitchConf.strokeColor}}" id="e18_area3" fill="{{color}}" style="stroke-width: 1px; vector-effect: non-scaling-stroke;"
+                          transform="scale({{ scale }})"
+                          d="M {{x}} {{y}} q 1.2 0.2, 1 2 q -1.2 -0.2, -1 -2 Z">
+                    </path>
+                {{else}}
+                    <path stroke="{{stitchConf.strokeColor}}" id="e18_area3" fill="{{color}}" style="stroke-width: 1px; vector-effect: non-scaling-stroke;"
+                          transform="scale({{ scale }})"
+                          d="M {{x}} {{y}} q -1.2 0.2, -1 2 q 1.2 -0.2, 1 -2 Z">
+                    </path>
+                {{/if}}
+
+            {{/each}}
+        </svg>
+
+        {{/each}}
+
+    </svg>
+
+
+
+    {{ data }}
+</template>
